@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raconteur>
+	<book id="rab101" title="Book Title" short_des="Short one line description" ver="1.0">
+		<image_data>
+			<image id="0" sx="-126" sy="-58" ex="0" ey="-58" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1412" sh="841" ew="1412" eh="841"/>
+			<image id="1" sx="85" sy="176" ex="78" ey="-76" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="402" sh="446" ew="650" eh="720"/>
+			<image id="2" sx="553" sy="-600" ex="553" ey="250" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="85" sh="138" ew="85" eh="138"/>
+			<image id="3" sx="-25" sy="-6" ex="-157" ey="-6" salpha="150" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1450" sh="736" ew="1450" eh="736"/>
+			<image id="4" sx="363" sy="173" ex="321" ey="255" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="964" sh="932" ew="1198" eh="1157"/>
+			<image id="5" sx="-227" sy="-39" ex="0" ey="-39" salpha="200" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1515" sh="770" ew="1515" eh="770"/>
+			<image id="6" sx="0" sy="0" ex="0" ey="0" salpha="20" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="494" sh="418" ew="559" eh="473"/>
+			<image id="7" sx="47" sy="43" ex="47" ey="43" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="640" sh="381" ew="640" eh="381"/>
+			<image id="8" sx="-22" sy="-5" ex="-182" ey="-5" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1468" sh="745" ew="1468" eh="745"/>
+			<image id="9" sx="220" sy="310" ex="651" ey="310" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="593" sh="340" ew="593" eh="340"/>
+			<image id="10" sx="833" sy="-1000" ex="833" ey="256" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="109" sh="110" ew="109" eh="110"/>
+			<image id="11" sx="600" sy="463" ex="850" ey="463" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="163" sh="175" ew="163" eh="175"/>
+			<image id="12" sx="221" sy="333" ex="635" ey="333" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="501" sh="348" ew="501" eh="348"/>
+			<image id="13" sx="0" sy="0" ex="-160" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1066" sh="726" ew="1066" eh="726"/>
+			<image id="14" sx="800" sy="492" ex="1290" ey="492" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="439" sh="193" ew="439" eh="193"/>
+			<image id="15" sx="882" sy="347" ex="1290" ey="347" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="412" sh="159" ew="412" eh="159"/>
+			<image id="16" sx="1290" sy="604" ex="1168" ey="604" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="109" sh="120" ew="109" eh="120"/>
+			<image id="17" sx="-151" sy="0" ex="0" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1434" sh="728" ew="1434" eh="728"/>
+			<image id="18" sx="439" sy="4" ex="825" ey="10" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="97" sh="142" ew="228" eh="335"/>
+			<image id="19" sx="992" sy="309" ex="546" ey="141" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="376" sh="544" ew="307" eh="443"/>
+			<image id="20" sx="767" sy="272" ex="638" ey="157" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="513" sh="455" ew="642" eh="570"/>
+			<image id="21" sx="594" sy="8" ex="1148" ey="0" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="700" sh="279" ew="332" eh="132"/>
+			<image id="22" sx="-754" sy="-322" ex="0" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="2042" sh="1280" ew="1281" eh="803"/>
+			<image id="23" sx="-700" sy="25" ex="35" ey="31" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="644" sh="433" ew="644" eh="433"/>
+			<image id="24" sx="-496" sy="-342" ex="-586" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="2759" sh="1073" ew="1874" eh="729"/>
+			<image id="25" sx="67" sy="-300" ex="67" ey="49" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="600" sh="209" ew="600" eh="209"/>
+			<image id="26" sx="0" sy="0" ex="-98" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1430" sh="726" ew="1430" eh="726"/>
+			<image id="27" sx="-1112" sy="730" ex="0" ey="15" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="949" sh="720" ew="949" eh="720"/>
+			<image id="28" sx="41" sy="36" ex="-1000" ey="36" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="933" sh="254" ew="933" eh="254"/>
+			<image id="29" sx="498" sy="216" ex="712" ey="216" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="600" sh="395" ew="385" eh="253"/>
+			<image id="30" sx="0" sy="0" ex="-149" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1432" sh="727" ew="1432" eh="727"/>
+			<image id="31" sx="998" sy="164" ex="-23" ey="164" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="943" sh="561" ew="943" eh="561"/>
+			<image id="32" sx="12" sy="125" ex="-600" ey="125" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="434" sh="385" ew="434" eh="385"/>
+			<image id="33" sx="0" sy="0" ex="0" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1280" sh="720" ew="1280" eh="720"/>
+			<image id="34" sx="0" sy="-84" ex="0" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="538" sh="818" ew="482" eh="732"/>
+			<image id="35" sx="941" sy="620" ex="629" ey="620" salpha="200" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="359" sh="114" ew="359" eh="114"/>
+			<image id="36" sx="-120" sy="214" ex="378" ey="214" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="314" sh="511" ew="314" eh="511"/>
+			<image id="37" sx="1500" sy="157" ex="788" ey="157" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="545" sh="567" ew="545" eh="567"/>
+			<image id="38" sx="518" sy="113" ex="518" ey="-500" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="537" sh="353" ew="537" eh="353"/>
+			<image id="39" sx="0" sy="0" ex="-145" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1432" sh="727" ew="1432" eh="727"/>
+			<image id="40" sx="-8" sy="-144" ex="255" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1559" sh="1018" ew="1109" eh="725"/>
+			<image id="41" sx="29" sy="201" ex="29" ey="201" salpha="0" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="624" sh="477" ew="624" eh="477"/>
+			<image id="42" sx="0" sy="0" ex="0" ey="0" salpha="0" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1297" sh="722" ew="1297" eh="722"/>
+			<image id="43" sx="-121" sy="0" ex="0" ey="0" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="1419" sh="721" ew="1419" eh="721"/>
+			<image id="44" sx="472" sy="780" ex="722" ey="305" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="198" sh="360" ew="198" eh="360"/>
+			<image id="45" sx="663" sy="460" ex="36" ey="765" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="242" sh="350" ew="242" eh="350"/>
+			<image id="46" sx="0" sy="280" ex="0" ey="280" salpha="0" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="508" sh="421" ew="508" eh="421"/>
+			<image id="47" sx="0" sy="0" ex="-754" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="2040" sh="723" ew="2040" eh="723"/>
+			<image id="48" sx="722" sy="305" ex="910" ey="403" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="198" sh="360" ew="198" eh="360"/>
+			<image id="49" sx="-104" sy="0" ex="0" ey="-28" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1385" sh="816" ew="1285" eh="757"/>
+			<image id="50" sx="422" sy="249" ex="468" ey="182" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="115" sh="230" ew="251" eh="504"/>
+			<image id="51" sx="1044" sy="219" ex="740" ey="128" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="600" sh="600" ew="600" eh="600"/>
+			<image id="52" sx="649" sy="66" ex="1290" ey="-300" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="556" sh="243" ew="556" eh="243"/>
+			<image id="53" sx="0" sy="0" ex="0" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1280" sh="720" ew="1280" eh="720"/>
+			<image id="54" sx="1290" sy="694" ex="545" ey="39" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="806" sh="738" ew="806" eh="738"/>
+			<image id="55" sx="681" sy="168" ex="1290" ey="730" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="605" sh="651" ew="605" eh="651"/>
+			<image id="56" sx="-52" sy="-52" ex="-737" ey="-408" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="701" sh="600" ew="701" eh="600"/>
+			<image id="57" sx="39" sy="515" ex="-450" ey="515" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="401" sh="168" ew="401" eh="168"/>
+			<image id="58" sx="650" sy="14" ex="1290" ey="14" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="600" sh="188" ew="600" eh="188"/>
+			<image id="59" sx="63" sy="341" ex="63" ey="341" salpha="0" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="649" sh="209" ew="649" eh="209"/>
+			<image id="60" sx="0" sy="0" ex="-134" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1419" sh="720" ew="1419" eh="720"/>
+			<image id="61" sx="518" sy="49" ex="408" ey="98" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="135" sh="98" ew="228" eh="179"/>
+			<image id="62" sx="372" sy="98" ex="364" ey="208" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="98" sh="77" ew="203" eh="160"/>
+			<image id="63" sx="53" sy="-30" ex="315" ey="15" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="88" sh="58" ew="184" eh="122"/>
+			<image id="64" sx="865" sy="32" ex="753" ey="89" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="88" sh="105" ew="111" eh="133"/>
+			<image id="65" sx="-300" sy="40" ex="9" ey="122" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="151" sh="102" ew="268" eh="181"/>
+			<image id="66" sx="592" sy="342" ex="425" ey="359" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="218" sh="111" ew="218" eh="111"/>
+			<image id="67" sx="1500" sy="-20" ex="942" ey="-20" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="353" sh="744" ew="353" eh="744"/>
+			<image id="68" sx="5" sy="476" ex="5" ey="476" salpha="0" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="988" sh="212" ew="988" eh="212"/>
+			<image id="69" sx="30" sy="410" ex="30" ey="410" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="916" sh="373" ew="916" eh="373"/>
+			<image id="70" sx="0" sy="0" ex="0" ey="-172" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1307" sh="899" ew="1307" eh="899"/>
+			<image id="71" sx="368" sy="329" ex="26" ey="31" salpha="255" ealpha="255" srot="0" erot="0" speed="2.5" delay="0" sw="157" sh="146" ew="101" eh="94"/>
+			<image id="72" sx="147" sy="0" ex="147" ey="-612" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1133" sh="1342" ew="1133" eh="1342"/>
+			<image id="73" sx="583" sy="65" ex="1290" ey="65" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="700" sh="593" ew="700" eh="593"/>
+			<image id="74" sx="0" sy="0" ex="0" ey="0" salpha="255" ealpha="0" srot="0" erot="0" speed="0" delay="0" sw="1280" sh="720" ew="1280" eh="720"/>
+			<image id="75" sx="0" sy="0" ex="0" ey="0" salpha="0" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1280" sh="720" ew="1280" eh="720"/>
+			<image id="76" sx="0" sy="0" ex="0" ey="0" salpha="255" ealpha="255" srot="0" erot="0" speed="0" delay="0" sw="1280" sh="720" ew="1280" eh="720"/>
+		</image_data>
+		<scene_data>
+			<scene id="0" s_img="0" e_img="2" sfx_load="0" sfx_int="0"/>
+			<scene id="1" s_img="3" e_img="4" sfx_load="0" sfx_int="0"/>
+			<scene id="2" s_img="5" e_img="7" sfx_load="0" sfx_int="0"/>
+			<scene id="3" s_img="8" e_img="16" sfx_load="0" sfx_int="0"/>
+			<scene id="4" s_img="17" e_img="21" sfx_load="0" sfx_int="0"/>
+			<scene id="5" s_img="22" e_img="23" sfx_load="0" sfx_int="0"/>
+			<scene id="6" s_img="24" e_img="25" sfx_load="0" sfx_int="0"/>
+			<scene id="7" s_img="26" e_img="29" sfx_load="0" sfx_int="0"/>
+			<scene id="8" s_img="30" e_img="32" sfx_load="0" sfx_int="0"/>
+			<scene id="9" s_img="33" e_img="38" sfx_load="0" sfx_int="0"/>
+			<scene id="10" s_img="39" e_img="41" sfx_load="0" sfx_int="0"/>
+			<scene id="11" s_img="42" e_img="46" sfx_load="0" sfx_int="0"/>
+			<scene id="12" s_img="47" e_img="48" sfx_load="0" sfx_int="0"/>
+			<scene id="13" s_img="49" e_img="52" sfx_load="0" sfx_int="0"/>
+			<scene id="14" s_img="53" e_img="59" sfx_load="0" sfx_int="0"/>
+			<scene id="15" s_img="60" e_img="69" sfx_load="0" sfx_int="0"/>
+			<scene id="16" s_img="70" e_img="73" sfx_load="0" sfx_int="0"/>
+			<scene id="17" s_img="74" e_img="75" sfx_load="0" sfx_int="0"/>
+			<scene id="16" s_img="76" e_img="76" sfx_load="0" sfx_int="0"/>
+		</scene_data>
+		<music_data>
+			<music id="0" bg_music="0" sscene="0" escene="16" filler = "0" startfill = "0"/>
+			
+												
+		</music_data>
+	</book>
+</raconteur>
