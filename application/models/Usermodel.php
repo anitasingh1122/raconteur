@@ -150,8 +150,8 @@ class Usermodel extends CI_Model {
         }
         else{
             if($this->db->insert(USERS,$data)){
-				return 'yes';
-                //return $this->db->insert_id();
+			//	return 'yes';
+                return $this->db->insert_id();
             }
             else{
                 //return 0;
