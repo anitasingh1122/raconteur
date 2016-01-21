@@ -294,12 +294,19 @@ class User extends CI_Controller {
             	$userid=$this->encryption1->getGUID();
             	$data=array('user_id'=>$userid,'user_email' => $UserEmail,'name'=>@$Name,'google_id'=>$GoogleId);
             	$res=$this->Usermodel-> socialUser($data,$where);
-            	if($res != 'no'){
+            	if(strlen($res) >= 2){
             		$token=$this->encryption1->encode(microtime());
             		if($this->Usermodel->updatetoken($token,$userid,$this->encryption1->getGUID())){
+            			$resusers=$this->Usermodel->getUserById($userid);
+            			//print_r($res);
             			$re=json_decode(APPSUCCESS,true);
             			$re['result']['userid']=@$res;
                     	$re['result']['token']=$token;
+                    	$re['result']['passcode']=@$resusers[0]->passcode;
+                    	$re['result']['is_parental_lock_enable']=@$resusers[0]->is_parental_lock_enable;;
+                    	if(@$resusers[0]->is_super_user==0){
+							$re['result']['UserType']='3';
+						}else{$re['result']['UserType']='1';}
                     	echo json_encode($re);	
             		}
             		else{
@@ -333,14 +340,27 @@ class User extends CI_Controller {
             $UserEmail = @$userdata->UserEmail;
             if(!empty($FacebookId) && !empty($UserEmail)){
             	$where=array('user_email' => $UserEmail);
-            	$data=array('user_id'=>$this->encryption1->getGUID(),'user_email' => $UserEmail,'name'=>@$Name,'fb_id'=>$FacebookId);
+            	$userid=$this->encryption1->getGUID();
+            	$data=array('user_id'=>$userid,'user_email' => $UserEmail,'name'=>@$Name,'fb_id'=>$FacebookId);
             	$res=$this->Usermodel-> socialUser($data,$where);
-            	if($res!=0){
+            	if(strlen($res) >= 2){
             		$token=$this->encryption1->encode(microtime());
-            		$re=json_decode(APPSUCCESS,true);
-            		$re['result']['userid']=@$res;
-                    $re['result']['token']=$token;
-                    echo json_encode($re);
+            		if($this->Usermodel->updatetoken($token,$userid,$this->encryption1->getGUID())){
+            			$resusers=$this->Usermodel->getUserById($userid);
+            			//print_r($res);
+            			$re=json_decode(APPSUCCESS,true);
+            			$re['result']['userid']=@$res;
+                    	$re['result']['token']=$token;
+                    	$re['result']['passcode']=@$resusers[0]->passcode;
+                    	$re['result']['is_parental_lock_enable']=@$resusers[0]->is_parental_lock_enable;;
+                    	if(@$resusers[0]->is_super_user==0){
+							$re['result']['UserType']='3';
+						}else{$re['result']['UserType']='1';}
+                    	echo json_encode($re);	
+            		}
+            		else{
+            			echo APPERROR;
+            		}
             	}
             	else{
             		echo APPERROR;

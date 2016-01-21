@@ -235,7 +235,7 @@ class Usermodel extends CI_Model {
     }
     public function ChangePassword($userid,$password){
         $data=array('user_password'=>$password);
-        $this->db->where('user_id',$userid);
+        $this->db->where("user_id LIKE '".$userid."%'");
         if($this->db->update(USERS,$data)){
             return TRUE;
         }
@@ -249,6 +249,17 @@ class Usermodel extends CI_Model {
 		 $this->db->where($array);
         $res =  $this->db->get(USERAUTH)->result();
         return $res;
+	}
+
+	public function getUserById($userid){
+		if(strlen($userid) >0){
+        $this->db->where("user_id LIKE '".$userid."%'");
+       	return $this->db->get(USERS)->result();
 		}
+		else{
+			return array();
+		}
+
+	}
 
 }
