@@ -74,28 +74,39 @@ class Books extends CI_Controller {
 	}
 
     public function getBooks(){
+
+	
         $header = getallheaders();
         $xmlstr = @file_get_contents('php://input');
+		
+
 
         if (count($xmlstr) <= 0) {
+
             echo APPERROR;
         } 
         else{
+	
             $userdata=  json_decode($xmlstr);
+
             $BookID=@$userdata->BookId;
             $token=@$userdata->AccessToken;
+
              if(strlen($token)>10 && $BookID>0){
+	
                 $res=$this->Bookmodel->addBooks($token,$BookID);
+	
                 $bookId=@$res[0]->book_meta_id;
                 //echo $bookId;exit;
                 $userid=$this->Usermodel->getIdByToken($token);
+		
                 if(count($userid)>0 && count($res) >0){
                     $userType=@$userid[0]->is_pub;
                       //  if(!$userType){
                             $uid=@$userid[0]->userid;
                             
                             $key=$this->encryption1->encode($bookId.$uid);
-                            $res=$this->Bookmodel->addBookToUser($bookId,$uid,$key);
+                            $res=$this->Bookmodel->addBookToUser($this->encryption1->getGUID(),$bookId,$uid,$key);
                             if($res==1)
                             {
                                 echo APPSUCCESS;;

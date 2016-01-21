@@ -71,5 +71,6 @@
 			<music id="0" bg_music="0" sscene="0" escene="3" filler = "0" startfill = "31.150"/>
 			<music id="1" bg_music="1" sscene="4" escene="9" filler = "1" startfill = "35.000"/>
 		</music_data>
+<page_data></page_data>
 	</book>
 </raconteur>

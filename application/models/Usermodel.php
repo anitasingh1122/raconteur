@@ -52,7 +52,7 @@ class Usermodel extends CI_Model {
         return $res[0]['user_id'];
     }
 
-    public function updatetoken($token,$userid,$type=FALSE){
+    public function updatetoken($token,$userid,$uid,$type=FALSE){
         if($userid=='' || $userid<=0 || strlen($token)<10){
             return false;
         }
@@ -73,7 +73,7 @@ class Usermodel extends CI_Model {
                 }
             }
             else{
-               $data=array('token'=>$token,'is_pub'=>$type);
+               $data=array('authid'=>$uid,'token'=>$token,'is_pub'=>$type);
                $data['userid']= $userid;
                if ($this->db->insert(USERAUTH, $data)) {
                     return TRUE;
@@ -149,9 +149,11 @@ class Usermodel extends CI_Model {
             }
         }
         else{
-            if($this->db->insert(USERS,$data)){
+            if($this->db->insert($tbl=USERS,$data)){
 			//	return 'yes';
-                return $this->db->insert_id();
+                 $this->db->where('user_email',$data['user_email']);
+            	$res=$this->db->get($tbl)->result();
+            	return $res[0]->user_id;
             }
             else{
                 //return 0;
@@ -200,10 +202,10 @@ class Usermodel extends CI_Model {
         }
     }
 
-    public function resetrequest($userid,$code){
+    public function resetrequest($userid,$code,$uid){
 	$this->db->where('user_id',$userid);
 	$this->db->delete(PASSWORDRESET);
-	$data=array('user_id'=>$userid,'token'=>$code);
+	$data=array('p_reset'=>$uid,'user_id'=>$userid,'token'=>$code);
 	if($this->db->insert(PASSWORDRESET,$data)){return TRUE;}else{ return FALSE;}
     }
 

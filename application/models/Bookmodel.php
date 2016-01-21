@@ -31,7 +31,6 @@ class Bookmodel extends CI_Model {
         $data=array('date_updated'=>date('Y-m-d H:i:s'));
         $res =  $this->db->get()->result();
         $userAge = @$res[0]->Age;
-
         $this->db->select(BOOKS.'.*,'.BOOKS.'.book_meta_id as book_id,'.PUBLISHER.'.pub_name');
         $this->db->from(BOOKS);
         $this->db->join(PUBLISHER,PUBLISHER.'.pub_id='.BOOKS.'.pub_id');
@@ -144,6 +143,7 @@ class Bookmodel extends CI_Model {
             $this->db->where("token LIKE '".$token."%'");
 			//print_r($this->db);
             $res =  $this->db->get()->result();
+            //print_r($res);
             $UserType=@$res[0]->is_pub;
             $userid=@$res[0]->userid;
             $user  =@$res[0]->Age;
@@ -155,12 +155,14 @@ class Bookmodel extends CI_Model {
                 $this->db->from(USERBOOKS);
                 $this->db->join(BOOKS,BOOKS.'.book_meta_id='.USERBOOKS.'.book_id');
                 $this->db->join(PUBLISHER,PUBLISHER.'.pub_id='.BOOKS.'.pub_id');
-                $this->db->where('user_id',$userid); 
+                $this->db->where("user_id LIKE '%".$userid."%'"); 
                 if($islock==1){
                      $this->db->where(BOOKS.'.age < 13');  
                 }
                 //$this->db->where('age',$userAge);
+                //print_r($this->db);
                 $res=$this->db->get()->result_array();
+               // print_r($res);
                  $res=array_map(function($value) { $value['book_thumb']=base_url().$value['book_thumb'];
                                           $value['book_cover']=base_url().$value['book_cover'];
                                            $value['url']=base_url().$value['url'];
@@ -238,8 +240,10 @@ class Bookmodel extends CI_Model {
         }
     }
 
-    public function addBookToUser($bookId,$userid,$openKey){
-        $data=array('user_id'=>$userid,
+    public function addBookToUser($guid,$bookId,$userid,$openKey){
+        $data=array(
+                    'user_books_id'=>$guid,
+                    'user_id'=>$userid,
                      'book_id'=>$bookId,
                      'open_key'=>$openKey
                     );

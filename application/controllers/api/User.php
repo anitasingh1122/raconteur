@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
@@ -22,7 +22,7 @@ class User extends CI_Controller {
             $userdata=  json_decode($xmlstr);
             $UserEmail = @$userdata->UserEmail;
             $Password = @$userdata->Password;;
-			$Password= $this->encryption1->encode($Password);
+		$Password= $this->encryption1->encode($Password);
             $type=@$userdata->UserType;
             
 			 if(strtolower($type)=='publisher'){
@@ -36,7 +36,7 @@ class User extends CI_Controller {
 	                if(count($authenticateUser) > 0){
 	                        $re=json_decode(APPSUCCESS,true);
 	                        $token=$this->encryption1->encode(microtime().$Password);
-	                        if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,true)){
+	                        if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID(),true)){
 		                        $re['result']['userid']=@$authenticateUser[0]->user_id;
 		                        $re['result']['token']=$token;
 								$re['result']['UserType']='2';
@@ -72,7 +72,7 @@ class User extends CI_Controller {
 		                       if(!count($res1)>0){
 								  // echo 'if here';
 									$token=$this->encryption1->encode(microtime().$Password);
-									if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id)){
+									if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID())){
 										$re['result']['userid']=@$authenticateUser[0]->user_id;
 										$re['result']['token']=$token;
 										$re['result']['passcode']=$authenticateUser[0]->passcode;
@@ -110,7 +110,7 @@ class User extends CI_Controller {
 		            		$success=json_decode(APPSUCCESS,true);
             				$success['result']=$res[0];
             				$token=$this->encryption1->encode(microtime().$res[0]->user_id);
-            				if($this->Usermodel->updatetoken($token,@$res[0]->user_id)){
+            				if($this->Usermodel->updatetoken($token,@$res[0]->user_id,$this->encryption1->getGUID())){
             					$userid= $res[0]->user_id;
             					$success['result']->status="Success";
             					//$success->status="Success";
@@ -168,6 +168,7 @@ class User extends CI_Controller {
 	            {
 	            	if(!empty($UserEmail) && !empty($Password)){
 	            		$data=array(
+	            				'user_id'=>$this->encryption1->getGUID(),
 		            			'pub_name'=>@$Name,
 		            			'email'=>$UserEmail,
 		            			'password'=>$Password,
@@ -203,6 +204,7 @@ class User extends CI_Controller {
 	            {
 	            	if(isset($UserEmail) && isset($Password) && isset($Age)){
 	            		$data=array(
+	            				'user_id'=>$this->encryption1->getGUID(),
 		            			'name'=>@$Name,
 		            			'user_email'=>$UserEmail,
 		            			'user_password'=>$Password,
@@ -219,7 +221,7 @@ class User extends CI_Controller {
 								if(count($authenticateUser) > 0){
 										$re=json_decode(APPSUCCESS,true);
 										$token=$this->encryption1->encode(microtime().$Password);
-										if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id)){
+										if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID())){
 											$re['result']['userid']=@$authenticateUser[0]->user_id;
 											$re['result']['token']=$token;
 											$re['result']['passcode']=$authenticateUser[0]->passcode;
@@ -289,14 +291,21 @@ class User extends CI_Controller {
             $UserEmail = @$userdata->UserEmail;
             if(!empty($GoogleId) && !empty($UserEmail)){
             	$where=array('user_email' => $UserEmail);
-            	$data=array('user_email' => $UserEmail,'name'=>@$Name,'google_id'=>$GoogleId);
+            	$userid=$this->encryption1->getGUID();
+            	$data=array('user_id'=>$userid,'user_email' => $UserEmail,'name'=>@$Name,'google_id'=>$GoogleId);
             	$res=$this->Usermodel-> socialUser($data,$where);
             	if($res != 'no'){
             		$token=$this->encryption1->encode(microtime());
-            		$re=json_decode(APPSUCCESS,true);
-            		$re['result']['userid']=@$res;
-                    $re['result']['token']=$token;
-                    echo json_encode($re);
+            		if($this->Usermodel->updatetoken($token,$userid,$this->encryption1->getGUID())){
+            			$re=json_decode(APPSUCCESS,true);
+            			$re['result']['userid']=@$res;
+                    	$re['result']['token']=$token;
+                    	echo json_encode($re);	
+            		}
+            		else{
+            			echo APPERROR;
+            		}
+
             	}
             	else{
             		echo APPERROR;
@@ -324,7 +333,7 @@ class User extends CI_Controller {
             $UserEmail = @$userdata->UserEmail;
             if(!empty($FacebookId) && !empty($UserEmail)){
             	$where=array('user_email' => $UserEmail);
-            	$data=array('user_email' => $UserEmail,'name'=>@$Name,'fb_id'=>$FacebookId);
+            	$data=array('user_id'=>$this->encryption1->getGUID(),'user_email' => $UserEmail,'name'=>@$Name,'fb_id'=>$FacebookId);
             	$res=$this->Usermodel-> socialUser($data,$where);
             	if($res!=0){
             		$token=$this->encryption1->encode(microtime());
@@ -511,7 +520,7 @@ class User extends CI_Controller {
             if(count($userExits) >0){
 				$userid=$userExits[0]->user_id;
 				$code=rand (1000, 9999 );
-            	if($this->sendMail1($UserEmail,$code) && $this->Usermodel->resetrequest($userid,$code)){
+            	if($this->sendMail1($UserEmail,$code) && $this->Usermodel->resetrequest($userid,$code,$this->encryption1->getGUID())){
             		echo APPSUCCESS;
             	}
             	else{

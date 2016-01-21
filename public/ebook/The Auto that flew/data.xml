@@ -128,5 +128,6 @@
 			<music id="0" bg_music="0" sscene="0" escene="23" filler="0" startfill="0" />
 												
 		</music_data>
+<page_data></page_data>
 	</book>
 </raconteur>
