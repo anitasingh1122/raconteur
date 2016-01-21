@@ -36,9 +36,10 @@ class User extends CI_Controller {
 	                if(count($authenticateUser) > 0){
 	                        $re=json_decode(APPSUCCESS,true);
 	                        $token=$this->encryption1->encode(microtime().$Password);
-	                        if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID(),true)){
+	                        $uptoken=$this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID(),true);
+	                        if($uptoken->s){
 		                        $re['result']['userid']=@$authenticateUser[0]->user_id;
-		                        $re['result']['token']=$token;
+		                        $re['result']['token']=$uptoken['token'];
 								$re['result']['UserType']='2';
 		                        echo json_encode($re);
 		                    }
@@ -72,9 +73,10 @@ class User extends CI_Controller {
 		                       if(!count($res1)>0){
 								  // echo 'if here';
 									$token=$this->encryption1->encode(microtime().$Password);
-									if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID())){
+									$uptoken=$this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID());
+									if($uptoken->s){
 										$re['result']['userid']=@$authenticateUser[0]->user_id;
-										$re['result']['token']=$token;
+										$re['result']['token']=$uptoken['token'];
 										$re['result']['passcode']=$authenticateUser[0]->passcode;
 										$re['result']['is_parental_lock_enable']=$authenticateUser[0]->is_parental_lock_enable;
 										if(@$authenticateUser[0]->is_super_user==0){
@@ -110,11 +112,12 @@ class User extends CI_Controller {
 		            		$success=json_decode(APPSUCCESS,true);
             				$success['result']=$res[0];
             				$token=$this->encryption1->encode(microtime().$res[0]->user_id);
-            				if($this->Usermodel->updatetoken($token,@$res[0]->user_id,$this->encryption1->getGUID())){
+            				$uptoken=$this->Usermodel->updatetoken($token,@$res[0]->user_id,$this->encryption1->getGUID());
+            				if($uptoken->s){
             					$userid= $res[0]->user_id;
             					$success['result']->status="Success";
             					//$success->status="Success";
-            					$success['result']->token=$token;
+            					$success['result']->token=$uptoken['token'];
             					$success['result']->userid=@$res[0]->user_id;
             					if(@$res[0]->is_super_user==0){
 										$success['result']->UserType='3';
@@ -221,9 +224,10 @@ class User extends CI_Controller {
 								if(count($authenticateUser) > 0){
 										$re=json_decode(APPSUCCESS,true);
 										$token=$this->encryption1->encode(microtime().$Password);
-										if($this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID())){
+										$uptoken=$this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID());
+										if($uptoken->s){
 											$re['result']['userid']=@$authenticateUser[0]->user_id;
-											$re['result']['token']=$token;
+											$re['result']['token']=$uptoken['token'];
 											$re['result']['passcode']=$authenticateUser[0]->passcode;
 											$re['result']['password']=$this->encryption1->decode($authenticateUser[0]->user_password);;
 											$re['result']['is_parental_lock_enable']=$authenticateUser[0]->is_parental_lock_enable;
@@ -294,14 +298,16 @@ class User extends CI_Controller {
             	$userid=$this->encryption1->getGUID();
             	$data=array('user_id'=>$userid,'user_email' => $UserEmail,'name'=>@$Name,'google_id'=>$GoogleId);
             	$res=$this->Usermodel-> socialUser($data,$where);
+            	//print_r($res);
             	if(strlen($res) >= 2){
             		$token=$this->encryption1->encode(microtime());
-            		if($this->Usermodel->updatetoken($token,$userid,$this->encryption1->getGUID())){
-            			$resusers=$this->Usermodel->getUserById($userid);
-            			//print_r($res);
+            		//echo $userid;
+            		$uptoken=$this->Usermodel->updatetoken($token,$res,$userid);
+            		if(strlen($res) >= 2 && $uptoken['s']){
+            			$resusers=$this->Usermodel->getUserById($res);
             			$re=json_decode(APPSUCCESS,true);
             			$re['result']['userid']=@$res;
-                    	$re['result']['token']=$token;
+                    	$re['result']['token']=$uptoken['token'];
                     	$re['result']['passcode']=@$resusers[0]->passcode;
                     	$re['result']['is_parental_lock_enable']=@$resusers[0]->is_parental_lock_enable;;
                     	if(@$resusers[0]->is_super_user==0){
@@ -345,12 +351,13 @@ class User extends CI_Controller {
             	$res=$this->Usermodel-> socialUser($data,$where);
             	if(strlen($res) >= 2){
             		$token=$this->encryption1->encode(microtime());
-            		if($this->Usermodel->updatetoken($token,$userid,$this->encryption1->getGUID())){
+            		$uptoken=$this->Usermodel->updatetoken($token,$userid,$userid);
+            		if($uptoken->s){
             			$resusers=$this->Usermodel->getUserById($userid);
             			//print_r($res);
             			$re=json_decode(APPSUCCESS,true);
             			$re['result']['userid']=@$res;
-                    	$re['result']['token']=$token;
+                    	$re['result']['token']=$uptoken['token'];
                     	$re['result']['passcode']=@$resusers[0]->passcode;
                     	$re['result']['is_parental_lock_enable']=@$resusers[0]->is_parental_lock_enable;;
                     	if(@$resusers[0]->is_super_user==0){

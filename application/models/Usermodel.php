@@ -53,32 +53,30 @@ class Usermodel extends CI_Model {
     }
 
     public function updatetoken($token,$userid,$uid,$type=FALSE){
-        if($userid=='' || $userid<=0 || strlen($token)<10){
+        if($userid=='' || strlen($userid)<=0 || strlen($token)<10){
             return false;
         }
         else{
 
             $array = array('userid' => $userid);
             $data=array('token'=>$token,'is_pub'=>$type);
-            $this->db->where('userid',$userid);
+            $this->db->where("userid LIKE '".$userid."%'");
             $this->db->where('is_pub',$type);
-            $r=count($this->db->get(USERAUTH)->result());
+            $res=$this->db->get(USERAUTH)->result();
+            $r=count($res);
             if($r>0){
-                $this->db->where('userid',$userid);
-                $this->db->where('is_pub',$type);
-                if ($this->db->update(USERAUTH, $data)) {
-                    return TRUE;
-                } else {
-                    return FALSE;
-                }
+            	$data=array('s'=>true,'token'=>$res[0]->token);
+            	return $data;
             }
             else{
                $data=array('authid'=>$uid,'token'=>$token,'is_pub'=>$type);
                $data['userid']= $userid;
                if ($this->db->insert(USERAUTH, $data)) {
-                    return TRUE;
+            		$data=array('s'=>true,'token'=>$token);
+                    return $data;
                 } else {
-                    return FALSE;
+                    $data=array('s'=>false,'token'=>NULL);
+                    return $data;
                 }
             }
             
@@ -141,6 +139,7 @@ class Usermodel extends CI_Model {
         $res=$this->db->get(USERS)->result();
         if(count($res)>0){
             $this->db->where($where);
+            $data['user_id']=$res[0]->user_id;
             if($this->db->update(USERS,$data)){
                 return $res[0]->user_id;
             }
