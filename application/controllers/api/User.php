@@ -37,7 +37,7 @@ class User extends CI_Controller {
 	                        $re=json_decode(APPSUCCESS,true);
 	                        $token=$this->encryption1->encode(microtime().$Password);
 	                        $uptoken=$this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID(),true);
-	                        if($uptoken->s){
+	                        if( $uptoken['s']){
 		                        $re['result']['userid']=@$authenticateUser[0]->user_id;
 		                        $re['result']['token']=$uptoken['token'];
 								$re['result']['UserType']='2';
@@ -61,7 +61,6 @@ class User extends CI_Controller {
     			$userExits = $this->Usermodel->getSpecificUser($UserEmail);
 	            if(count($userExits) > 0) 
 	            {
-	            		
 	            	if(strlen($this->encryption1->decode($Password))>4){
 	                	$authenticateUser = $this->Usermodel->authenticateUser($UserEmail,$Password);
 		                if(count($authenticateUser) > 0){
@@ -69,12 +68,11 @@ class User extends CI_Controller {
 		                       $user_id= @$authenticateUser[0]->user_id;
 		                      //echo $user_id;
 		                       $res1=$this->Usermodel->get_existing_token($user_id);
-		                   //  print_r($res1);
 		                       if(!count($res1)>0){
 								  // echo 'if here';
 									$token=$this->encryption1->encode(microtime().$Password);
 									$uptoken=$this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID());
-									if($uptoken->s){
+									if( $uptoken['s']){
 										$re['result']['userid']=@$authenticateUser[0]->user_id;
 										$re['result']['token']=$uptoken['token'];
 										$re['result']['passcode']=$authenticateUser[0]->passcode;
@@ -113,7 +111,7 @@ class User extends CI_Controller {
             				$success['result']=$res[0];
             				$token=$this->encryption1->encode(microtime().$res[0]->user_id);
             				$uptoken=$this->Usermodel->updatetoken($token,@$res[0]->user_id,$this->encryption1->getGUID());
-            				if($uptoken->s){
+            				if( $uptoken['s']){
             					$userid= $res[0]->user_id;
             					$success['result']->status="Success";
             					//$success->status="Success";
@@ -203,6 +201,7 @@ class User extends CI_Controller {
            else{
            		/*--------------------------Register Simple USER---------------------------*/
            	    $userExits = $this->Usermodel->getSpecificUser($UserEmail);
+           	   // print_r($userExits);
 	            if(count($userExits) <= 0) 
 	            {
 	            	if(isset($UserEmail) && isset($Password) && isset($Age)){
@@ -225,7 +224,7 @@ class User extends CI_Controller {
 										$re=json_decode(APPSUCCESS,true);
 										$token=$this->encryption1->encode(microtime().$Password);
 										$uptoken=$this->Usermodel->updatetoken($token,@$authenticateUser[0]->user_id,$this->encryption1->getGUID());
-										if($uptoken->s){
+										if($uptoken['s']){
 											$re['result']['userid']=@$authenticateUser[0]->user_id;
 											$re['result']['token']=$uptoken['token'];
 											$re['result']['passcode']=$authenticateUser[0]->passcode;
@@ -352,7 +351,7 @@ class User extends CI_Controller {
             	if(strlen($res) >= 2){
             		$token=$this->encryption1->encode(microtime());
             		$uptoken=$this->Usermodel->updatetoken($token,$userid,$userid);
-            		if($uptoken->s){
+            		if( $uptoken['s']){
             			$resusers=$this->Usermodel->getUserById($userid);
             			//print_r($res);
             			$re=json_decode(APPSUCCESS,true);
