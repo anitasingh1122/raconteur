@@ -7,8 +7,8 @@
 
 $config['protocol'] = 'smtp';
 $config['smtp_host'] = 'ssl://smtp.gmail.com'; //change this
-$config['smtp_user'] = 'lanetteam.anita@gmail.com'; //email id of gmail account
-$config['smtp_pass'] = 'lanet_latikajn@123'; //password of email id
+$config['smtp_user'] = 'info@corneaentertainment.com'; //email id of gmail account
+$config['smtp_pass'] = 'C0rnea19)#'; //password of email id
 $config['mailtype'] = 'html';
 $config['charset'] = 'iso-8859-1';
 $config['wordwrap'] = TRUE;

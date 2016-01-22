@@ -56,11 +56,11 @@ class Books extends CI_Controller {
 			if(!empty($id) && $id!=NULL){
 				$res=$this->Bookmodel->bookDetails($id);
 				if(count($res)>0){
-					//echo json_encode(array('result'=>base_url().$res));
+					//echo json_encode(array('result'=>$res));
                     $r=array();
                     $r['result']['status']='Success';
                     //$r['status']="success";
-                    $r['result']['Data']=array('BookUrl'=>base_url().$res);
+                    $r['result']['Data']=array('BookUrl'=>$res);
                     echo json_encode($r);
 				} 
 				else{
@@ -152,7 +152,7 @@ class Books extends CI_Controller {
 					//$this->zip->archive('public/User/myBook'.$v.'.zip'); 
 					// Download the file to your desktop. Name it "my_backup.zip"
 					//$this->zip->archive('my_backup'.$v.'.zip');
-        			echo json_encode(array('result'=>array('status'=>'Success','BookZip'=>base_url().$res[0]->url,'BookXml'=>base_url().$res[0]->book_xml)));
+        			echo json_encode(array('result'=>array('status'=>'Success','BookZip'=>$res[0]->url,'BookXml'=>$res[0]->book_xml)));
         		}
         		else{
         			echo NORECORD;
@@ -211,7 +211,7 @@ class Books extends CI_Controller {
                     $r=array();
                     $r['result']['status']='Success';
                     //$r['status']="success";
-                    $r['result']['Data']=array('BookUrl'=>base_url().$res);
+                    $r['result']['Data']=array('BookUrl'=>$res);
                     echo json_encode($r);
         		}
         		else{
@@ -246,7 +246,7 @@ class Books extends CI_Controller {
                     // Download the file to your desktop. Name it "my_backup.zip"
                    // $this->zip->archive('my_backup'.$v.'.zip');
                    // echo json_encode(array('result'=>array('BookUrl'=>$res[0]->url)));
-                        echo json_encode(array('result'=>array('status'=>'Success','BookZip'=>base_url().$res[0]->url)));
+                        echo json_encode(array('result'=>array('status'=>'Success','BookZip'=>$res[0]->url)));
         		}
         		else{
         			echo NORECORD;

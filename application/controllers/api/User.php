@@ -201,7 +201,6 @@ class User extends CI_Controller {
            else{
            		/*--------------------------Register Simple USER---------------------------*/
            	    $userExits = $this->Usermodel->getSpecificUser($UserEmail);
-           	   // print_r($userExits);
 	            if(count($userExits) <= 0) 
 	            {
 	            	if(isset($UserEmail) && isset($Password) && isset($Age)){
@@ -217,7 +216,7 @@ class User extends CI_Controller {
 		            			'date_added'=>date('Y-m-d H:i:s')
 		            		);
 	            		$res=$this->Usermodel->registerUser($data,USERS);
-	            		if($res!=0){
+	            		if(strlen($res)>0){
 	            			//echo REGISTERSUC;
 							 $authenticateUser = $this->Usermodel->authenticateUser($UserEmail,$Password);
 								if(count($authenticateUser) > 0){
@@ -546,6 +545,7 @@ class User extends CI_Controller {
             if(count($userExits) >0){
 				$userid=$userExits[0]->user_id;
 				$code=rand (1000, 9999 );
+				//$this->sendMail1($UserEmail,$code);
             	if($this->sendMail1($UserEmail,$code) && $this->Usermodel->resetrequest($userid,$code,$this->encryption1->getGUID())){
             		echo APPSUCCESS;
             	}
@@ -565,13 +565,17 @@ class User extends CI_Controller {
 	   
 	    $this->load->library('email');
 		$this->email->from('infor@cornea.com', 'Cornea');
-		$this->email->to('lanetteam.divyesh@gmail.com');
+		$this->email->to('lanetteam.vijayv@gmail.com');
 		$this->email->subject('Password Reset Request');
 		$this->email->message('Use this  pin to reset Password');//Load a view into email body
 		if($this->email->send()){
-			return true;
+
+            echo 'true';
+            			return true;
 		}
 		else{
+		   echo $this->email->print_debugger();
+		    echo 'false';
 			return false;
 		}
 

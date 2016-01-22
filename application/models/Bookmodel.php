@@ -10,9 +10,9 @@ class Bookmodel extends CI_Model {
         $this->db->join(PUBLISHER,PUBLISHER.'.pub_id='.BOOKS.'.pub_id');
         $this->db->where(BOOKS.'.is_active',1);
         $res=$this->db->get()->result_array();
-        $res=array_map(function($value) { $value['book_thumb']=base_url().$value['book_thumb'];
-                                          $value['book_cover']=base_url().$value['book_cover'];
-                                          $value['url']=base_url().$value['url'];
+        $res=array_map(function($value) { //$value['book_thumb']=base_url().$value['book_thumb'];
+                                          //$value['book_cover']=base_url().$value['book_cover'];
+                                          //$value['url']=base_url().$value['url'];
                                           return $value;
                                          }, $res);
         return $res;
@@ -52,9 +52,9 @@ class Bookmodel extends CI_Model {
         }
 
         $res=$this->db->get()->result_array();
-        $res=array_map(function($value) { $value['book_thumb']=base_url().$value['book_thumb'];
-                                          $value['book_cover']=base_url().$value['book_cover'];
-                                          $value['url']=base_url().$value['url'];
+        $res=array_map(function($value) { //$value['book_thumb']=base_url().$value['book_thumb'];
+                                         // $value['book_cover']=base_url().$value['book_cover'];
+                                         // $value['url']=base_url().$value['url'];
                                           return $value;
                                          }, $res);
 
@@ -70,9 +70,9 @@ class Bookmodel extends CI_Model {
         $this->db->from(BOOKS);
         $this->db->join(PUBLISHER,PUBLISHER.'.pub_id='.BOOKS.'.pub_id');
         $res=$this->db->get()->result_array();
-        $res=array_map(function($value) { $value['book_thumb']=base_url().$value['book_thumb'];
-                                          $value['book_cover']=base_url().$value['book_cover'];
-                                          $value['url']=base_url().$value['url'];
+        $res=array_map(function($value) { //$value['book_thumb']=base_url().$value['book_thumb'];
+                                          //$value['book_cover']=base_url().$value['book_cover'];
+                                          //$value['url']=base_url().$value['url'];
                                           return $value;
                                          }, $res);
         return $res;
@@ -163,11 +163,11 @@ class Bookmodel extends CI_Model {
                 //print_r($this->db);
                 $res=$this->db->get()->result_array();
                // print_r($res);
-                 $res=array_map(function($value) { $value['book_thumb']=base_url().$value['book_thumb'];
-                                          $value['book_cover']=base_url().$value['book_cover'];
-                                           $value['url']=base_url().$value['url'];
+                 $res=array_map(function($value) { //$value['book_thumb']=base_url().$value['book_thumb'];
+                                         // $value['book_cover']=base_url().$value['book_cover'];
+                                          // $value['url']=base_url().$value['url'];
 										   $value['book_id']=$value['book_meta_id'];
-										   // $value['user_id']=$value['pub_id'];
+										   $value['user_id']=$value['pub_id'];
                                           return $value;
                                          }, $res);
                 return $res;
@@ -183,9 +183,9 @@ class Bookmodel extends CI_Model {
                 $this->db->join(PUBLISHER,PUBLISHER.'.pub_id='.BOOKS.'.pub_id');
 				$this->db->join(USERBOOKS,BOOKS.'.pub_id='.USERBOOKS.'.user_id');
                 $res=$this->db->get()->result_array();
-                 $res=array_map(function($value) { $value['book_thumb']=base_url().$value['book_thumb'];
-                                          $value['book_cover']=base_url().$value['book_cover'];
-                                           $value['url']=base_url().$value['url'];
+                 $res=array_map(function($value) { //$value['book_thumb']=base_url().$value['book_thumb'];
+                                         // $value['book_cover']=base_url().$value['book_cover'];
+                                          // $value['url']=base_url().$value['url'];
 										    $value['book_id']=$value['book_meta_id'];
 											 $value['user_id']=$value['pub_id'];
                                           return $value;

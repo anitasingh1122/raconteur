@@ -202,7 +202,7 @@ class Usermodel extends CI_Model {
     }
 
     public function resetrequest($userid,$code,$uid){
-	$this->db->where('user_id',$userid);
+	$this->db->where("user_id LIKE '".$userid."'");
 	$this->db->delete(PASSWORDRESET);
 	$data=array('p_reset'=>$uid,'user_id'=>$userid,'token'=>$code);
 	if($this->db->insert(PASSWORDRESET,$data)){return TRUE;}else{ return FALSE;}
